@@ -1,0 +1,24 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Источники освещения",
+  "nestium.dynamiclights.menu.title": "Настройки NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "При использовании Canvas рекомендуется отключить динамическое освещение сущностей.",
+  "nestium.dynamiclights.menu.canvas.2": "На данный момент при использовании Canvas динамическое освещение ресурсозатратно!",
+  "nestium.dynamiclights.menu.tabs.general": "Основные",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Блоки",
+  "nestium.dynamiclights.option.light_sources.entities": "Сущности",
+  "nestium.dynamiclights.option.light_sources.self": "От первого лица",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Угасание в воде",
+  "nestium.dynamiclights.option.mode": "Динамическое освещение",
+  "nestium.dynamiclights.tooltip.block_entities": "Включает динамическое освещение сущностей.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Устанавливает режим динамического освещения у Криперов.\n- %s отключает динамическое освещение Криперов.\n- %s устанавливает постоянную яркость.\n- %s устанавливает динамическую яркость.",
+  "nestium.dynamiclights.tooltip.entities": "Включает динамическое освещение сущностей. Примечание: освещение игроков активно всегда.",
+  "nestium.dynamiclights.tooltip.mode.1": "Включает динамическое освещение. Например, игрок с факелом в руке будет подсвечивать область вокруг.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s и %s будут немного отставать, но сводят к минимуму обновление освещения.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s - плавное динамическое освещение.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Включает динамическое освещение от первого лица. Рекомендуется отключить это, если вы используете шейдеры с собственным динамическим освещением.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Устанавливает режим динамического освещения для динамита.\n- %s отключает динамическое освещение динамита.\n- %s устанавливает постоянную яркость.\n- %s устанавливает динамическую яркость.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Включает проверку источников света на нахождение в воде. Это означает, что некоторые предметы не будут излучать свет при погружении в воду.",
+
+  "modmenu.summaryTranslation.nestium_dynamiclights": "Добавляет динамическое освещение.",
+  "modmenu.descriptionTranslation.sodiumdynamiclights": "Динамическое освещение - это свет, исходящий от различных подвижных источников, таких как игроки или сущности.\nВозможности:\n • Динамическое освещение\n • Его тонкая настройка\n • Совместимость с предметами из модов\n • Свечение спектральных стрел, всполохов и других сущностей\n • Свечение горящих сущностей\n • Угасание факелов, костров и других предметов в воде\n • Удобные инструменты разработки\n • И многое другое!"
+}

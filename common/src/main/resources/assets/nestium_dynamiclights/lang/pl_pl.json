@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Źródła dynamicznego światła",
+  "nestium.dynamiclights.menu.title": "Ustawienia NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "Wyłączenie dynamicznego oświetlenia dla bytów jest zalecane w przypadku użycia Canvas! ",
+  "nestium.dynamiclights.menu.canvas.2": "Na tą chwilę dynamiczne oświetlenie użyte z Canvasem powoduje spadek wydajności!",
+  "nestium.dynamiclights.menu.tabs.general": "Ogólne",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Byty bloków",
+  "nestium.dynamiclights.option.light_sources.entities": "Byty",
+  "nestium.dynamiclights.option.light_sources.self": "Pierwsza osoba",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Sprawdz. wrażliw. na wodę",
+  "nestium.dynamiclights.option.mode": "Dynamiczne oświetlenie",
+  "nestium.dynamiclights.tooltip.block_entities": "Aktywuje dynamiczne oświetlenie generowane przez byty bloków.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Ustawia dynamiczne oświetlenie Creepera.\n- %s deaktywuje dynamiczne oświetlenie Creepera.\n- %s ustawia stałą jasność.\n- %s ustawia dynamiczną jasność.",
+  "nestium.dynamiclights.tooltip.entities": "Aktywuje dynamiczne oświetlenie dla bytów. Uwaga: dla graczy jest to zawsze aktywne.",
+  "nestium.dynamiclights.tooltip.mode.1": "Aktywuje dynamiczne oświetlenie. Jeśli włączone gracz trzymający pochodnie będzie oświetlał pobliski teren.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s oraz %s będą delikatnie opóźnione, jednak zminimalizują ilość aktualizacji oświetlenia.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s jest dokładnym dynamicznym oświetleniem.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Włącza pierwszoosobowe dynamiczne oświetlenie. Zaleca się wyłączenie tej opcji jeśli używasz shaderów które mają własne dynamiczne oświetlenie.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Ustawia tryb dynamicznego oświetlenia dla TNT.\n- %s deaktywuje dynamiczne oświetlenie TNT.\n- %s ustawia stałą jasność.\n- %s ustawia dynamiczną jasność.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Aktywuje sprawdzanie wrażliwości źródła światła na wodę. Oznacza to, że niektóre przedmioty po znalezieniu się w wodzie nie będą wytwarzały światła."
+}

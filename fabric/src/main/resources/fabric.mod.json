@@ -1,0 +1,114 @@
+{
+  "schemaVersion" : 1,
+  "id" : "nestium",
+  "version" : "${version}",
+  "name" : "Nestium",
+  "description" : "Nestium — это оптимизирующий гибридный мод, созданный на базе Sodium.",
+  "authors" : [
+    {
+      "name" : "JellySquid (jellysquid3)",
+      "contact" : {
+        "email" : "jellysquid@pm.me",
+        "homepage" : "https://jellysquid.me"
+      }
+    }
+  ],
+  "contributors" : [
+    "IMS212",
+    "bytzo",
+    "PepperCode1",
+    "FlashyReese",
+    "altrisi",
+    "Grayray75",
+    "Madis0",
+    "Johni0702",
+    "comp500",
+    "coderbot16",
+    "Moulberry",
+    "MCRcortex",
+    "Altirix",
+    "embeddedt",
+    "pajicadvance",
+    "Kroppeb",
+    "douira",
+    "burgerindividual",
+    "TwistedZero",
+    "Leo40Git",
+    "haykam821",
+    "muzikbike"
+  ],
+  "contact" : {
+    "homepage" : "https://github.com/CaffeineMC/nestium",
+    "sources" : "https://github.com/CaffeineMC/nestium",
+    "issues" : "https://github.com/CaffeineMC/nestium/issues"
+  },
+  "license" : "Polyform-Shield-1.0.0",
+  "icon" : "nestium-icon.png",
+  "environment" : "client",
+  "entrypoints" : {
+    "client" : [
+      "net.caffeinemc.mods.nestium.fabric.NestiumFabricMod"
+    ],
+    "preLaunch" : [
+      "net.caffeinemc.mods.nestium.fabric.NestiumPreLaunch"
+    ]
+  },
+  "custom" : {
+    "fabric-renderer-api-v1:contains_renderer" : true,
+    "modmenu" : {
+      "links" : {
+        "modmenu.donate" : "https://caffeinemc.net/donate",
+        "modmenu.discord" : "https://caffeinemc.net/discord",
+        "modmenu.github_releases" : "https://github.com/CaffeineMC/nestium/releases",
+        "modmenu.kofi" : "https://caffeinemc.net/donate",
+        "modmenu.modrinth" : "https://modrinth.com/mod/nestium"
+      }
+    }
+  },
+  "accessWidener" : "nestium-fabric.accesswidener",
+  "mixins" : [
+    "nestium-common.mixins.json",
+    "nestium-fabric.mixins.json",
+    "nestium-entityculling.mixins.json",
+    "nestium-dynamiclights.mixins.json",
+    "nestium-enhancedblockentities.mixins.json"
+  ],
+  "depends" : {
+    "minecraft" : ["1.21", "1.21.1"],
+    "fabricloader" : ">=0.16.0",
+    "fabric-block-view-api-v2" : "*",
+    "fabric-renderer-api-v1" : "*",
+    "fabric-rendering-data-attachment-v1" : "*",
+    "fabric-rendering-fluids-v1" : ">=2.0.0",
+    "fabric-resource-loader-v0" : "*"
+  },
+  "breaks" : {
+    "embeddium": "*",
+    "optifabric" : "*",
+    "canvas" : "*",
+    "vulkanmod": "*",
+    "nestium-blendingregistry" : "*",
+    "ocrenderfix_nestium" : "*",
+    "betterfpsdist" : "<=1.21-4.5",
+    "bobby" : "<5.2.4",
+    "chunksfadein" : "<2.0.2-1.21.2",
+    "cull-less-leaves" : "<=1.3.0",
+    "cullleaves" : "<=3.4.0-fabric",
+    "custom_hud" : "<3.4.2",
+    "farsight" : "<=1.21-4.3",
+    "iceberg" : "<1.2.7",
+    "iris" : "<1.8.7",
+    "movingelevators" : "<=1.4.7",
+    "nex" : "<=1.21-0.2.2",
+    "no-telemetry" : "<=1.9.0",
+    "polymer-blocks" : "<0.6.0",
+    "reeses-sodium-options" : "*",
+    "sodium-extra" : "*",
+    "valkyrienskies" : "<=2.3.0-beta.5",
+    "yigd" : "<2.0.0-beta.13"
+  },
+  "suggests" : {
+    "lithium" : "*",
+    "modmenu" : "*"
+  }
+}

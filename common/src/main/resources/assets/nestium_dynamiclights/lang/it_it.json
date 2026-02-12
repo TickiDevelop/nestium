@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Fonti luminose dinamiche",
+  "nestium.dynamiclights.menu.title": "Impostazioni di NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "È raccomandato disattivare le luci dinamiche delle entità con Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "Attualmente la luminosità dinamica è molto pesante con Canvas!",
+  "nestium.dynamiclights.menu.tabs.general": "Generali",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Blocchi Entità",
+  "nestium.dynamiclights.option.light_sources.entities": "Entità",
+  "nestium.dynamiclights.option.light_sources.self": "Prima Persona",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Controllo Sensibilità nell'acqua",
+  "nestium.dynamiclights.option.mode": "Luci dinamiche",
+  "nestium.dynamiclights.tooltip.block_entities": "Attiva l'illuminazione dinamica delle entità blocco.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Imposta la modalità d'illuminazione dinamica dei Creeper.\n- %s disattiva l'illuminazione dinamica dei Creeper.\n- %s imposta una luminosità costante.\n- %s imposta una luminosità dinamica.",
+  "nestium.dynamiclights.tooltip.entities": "Attiva l'illuminazione dinamica delle entità. Nota: l'illuminazione dinamica dei giocatori è sempre attiva.",
+  "nestium.dynamiclights.tooltip.mode.1": "Attiva le luci dinamiche. Se attivo, per esempio, un giocatore con una torcia in mano emetterà luce.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s e %s avranno un leggero ritardo ma minimizzeranno gli aggiornamenti della luce.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s attiva l'illuminazione dinamica soffusa.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Imposta la modalità d'illuminazione dinamica della TNT.\n- %s disattiva l'illuminazione dinamica della TNT.\n- %s imposta una luminosità costante.\n- %s imposta una luminosità dinamica.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Abilita luci dinamiche in prima persona. È raccomandato disabilitarle se si usano shaders con la propria implementazione di luci dinamiche.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Attiva il controllo delle fonti di luce sensibili all'acqua. Questo vuol dire che certi oggetti non emetteranno luce mentre sommersi."
+}

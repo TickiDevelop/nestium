@@ -1,0 +1,18 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Dünaamilised valgusallikad",
+  "nestium.dynamiclights.menu.title": "NestiumDynamicLightsi seaded",
+  "nestium.dynamiclights.menu.canvas.1": "Canvase puhul on soovitatav olemite dünaamiline valgustus keelata!",
+  "nestium.dynamiclights.menu.canvas.2": "Dünaamiline valgustus nõuab hetkel Canvasega kasutades suurt jõudlust!",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Plokiolemid",
+  "nestium.dynamiclights.option.light_sources.entities": "Olemid",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Vee tundlikkuse kontroll",
+  "nestium.dynamiclights.option.mode": "Dünaamiline valgustus",
+  "nestium.dynamiclights.tooltip.block_entities": "Lubab dünaamilise valgustuse plokiolemitele.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Määrab creeperi dünaamilise valgustuse režiimi.\n- %s keelab creeperi dünaamilise valgustuse.\n- %s määrab püsiva ereduse.\n- %s määrab dünaamilise ereduse.",
+  "nestium.dynamiclights.tooltip.entities": "Lubab olemite dünaamilise valgustuse. Märkus: mängijad on alati aktiivsed.",
+  "nestium.dynamiclights.tooltip.mode.1": "Lubab dünaamilise valgustuse. Lubamisel valgustab näiteks tõrvikut hoidev mängija teda ümbritsevat ala.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s ja %s on väikese viiteajaga, kuid minimeerivad valgusuuendusi.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s on sujuv dünaamiline valgustus.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Määrab dünamiidi dünaamilise valgustuse režiimi.\n- %s keelab dünamiidi dünaamilise valgustuse.\n- %s määrab püsiva ereduse.\n- %s määrab dünaamilise ereduse.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Lubab veetundliku valgusallikate kontrolli. See tähendab, et mõned esemed ei erita valgust vee all."
+}

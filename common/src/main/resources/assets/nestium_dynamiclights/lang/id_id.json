@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Sumber Cahaya Dinamis",
+  "nestium.dynamiclights.menu.title": "Pengaturan NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "Disarankan untuk menonaktifkan pencahayaan dinamis entitas dengan Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "Pencahayaan dinamis dengan Canvas saat ini membutuhkan kinerja yang berat!",
+  "nestium.dynamiclights.menu.tabs.general": "Umum",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Entitas Blok",
+  "nestium.dynamiclights.option.light_sources.entities": "Entitas",
+  "nestium.dynamiclights.option.light_sources.self": "Sudut pandang orang pertama",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Pemeriksaan Sensitivitas Air",
+  "nestium.dynamiclights.option.mode": "Cahaya Dinamis",
+  "nestium.dynamiclights.tooltip.block_entities": "Mengaktifkan pencahayaan dinamis blok entitas",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Mengatur mode pencahayaan dinamis Creeper.\n- %s menonaktifkan pencahayaan dinamis Creeper.\n- %s mengaktifkan pencahayaan konstan.\n- %s mengatur pencahayaan dinamis.",
+  "nestium.dynamiclights.tooltip.entities": "Mengaktifkan pencahayaan dinamis entitas. Catatan: pemain selalu aktif.",
+  "nestium.dynamiclights.tooltip.mode.1": "Mengaktifkan lampu dinamis. Jika diaktifkan, pemain yang memegang obor akan menerangi area tersebut",
+  "nestium.dynamiclights.tooltip.mode.2": "%s dan %s akan sedikit lag tetapi meminimalkan pembaruan ringan.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s adalah pencahayaan dinamis yang mulus.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Mengaktifkan pencahayaan dinamis orang pertama. Sebaiknya nonaktifkan ini jika kamu menggunakan shader yang memiliki pencahayaan dinamis sendiri.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Mengatur mode pencahayaan dinamis TNT.\n- %s menonaktifkan pencahayaan dinamis TNT.\n- %s menetapkan luminansi konstan.\n- %s menetapkan pencahayaan dinamis.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Mengaktifkan pemeriksaan sumber cahaya yang sensitif terhadap air. Ini berarti beberapa item tidak akan memancarkan cahaya ketika terendam di dalam air."
+}

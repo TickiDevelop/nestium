@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/template_chest_center",
+    "textures": {
+        "chest": "minecraft:entity/chest/christmas"
+    }
+}

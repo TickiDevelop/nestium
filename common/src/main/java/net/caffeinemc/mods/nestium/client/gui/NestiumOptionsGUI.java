@@ -1,0 +1,356 @@
+package net.caffeinemc.mods.nestium.client.gui;
+
+import net.caffeinemc.mods.nestium.client.NestiumClientMod;
+import net.caffeinemc.mods.nestium.client.console.Console;
+import net.caffeinemc.mods.nestium.client.console.message.MessageLevel;
+import net.caffeinemc.mods.nestium.client.gui.options.*;
+import net.caffeinemc.mods.nestium.client.gui.options.control.Control;
+import net.caffeinemc.mods.nestium.client.gui.options.control.ControlElement;
+import net.caffeinemc.mods.nestium.client.gui.options.storage.OptionStorage;
+import net.caffeinemc.mods.nestium.client.gui.prompt.ScreenPrompt;
+import net.caffeinemc.mods.nestium.client.gui.prompt.ScreenPromptable;
+import net.caffeinemc.mods.nestium.client.gui.screen.ConfigCorruptedScreen;
+import net.caffeinemc.mods.nestium.client.gui.widgets.FlatButtonWidget;
+import net.caffeinemc.mods.nestium.client.services.PlatformRuntimeInformation;
+import net.caffeinemc.mods.nestium.client.util.Dim2i;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.options.VideoSettingsScreen;
+import net.minecraft.locale.Language;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
+import net.minecraft.util.FormattedCharSequence;
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Stream;
+
+// TODO: Rename in Nestium 0.6
+public class NestiumOptionsGUI extends Screen implements ScreenPromptable {
+    private final List<OptionPage> pages = new ArrayList<>();
+
+    private final List<ControlElement<?>> controls = new ArrayList<>();
+
+    private final Screen prevScreen;
+
+    private OptionPage currentPage;
+
+    private FlatButtonWidget applyButton, closeButton, undoButton;
+
+    private boolean hasPendingChanges;
+    private ControlElement<?> hoveredElement;
+
+    private @Nullable ScreenPrompt prompt;
+
+    private NestiumOptionsGUI(Screen prevScreen) {
+        super(Component.translatable("nestium.options.screen_title"));
+
+        this.prevScreen = prevScreen;
+
+        this.pages.add(NestiumGameOptionPages.general());
+        this.pages.add(NestiumGameOptionPages.quality());
+        this.pages.add(NestiumGameOptionPages.performance());
+        this.pages.add(NestiumGameOptionPages.advanced());
+    }
+
+    public static Screen createScreen(Screen currentScreen) {
+        if (NestiumClientMod.options().isReadOnly()) {
+            return new ConfigCorruptedScreen(currentScreen, NestiumOptionsGUI::new);
+        } else {
+            return new NestiumOptionsGUI(currentScreen);
+        }
+    }
+
+    public void setPage(OptionPage page) {
+        this.currentPage = page;
+
+        this.rebuildGUI();
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+
+        this.rebuildGUI();
+
+        if (this.prompt != null) {
+            this.prompt.init();
+        }
+    }
+
+    private void rebuildGUI() {
+        this.controls.clear();
+
+        this.clearWidgets();
+
+        if (this.currentPage == null) {
+            if (this.pages.isEmpty()) {
+                throw new IllegalStateException("No pages are available?!");
+            }
+
+            // Just use the first page for now
+            this.currentPage = this.pages.get(0);
+        }
+
+        this.rebuildGUIPages();
+        this.rebuildGUIOptions();
+
+        this.undoButton = new FlatButtonWidget(new Dim2i(this.width - 211, this.height - 30, 65, 20), Component.translatable("nestium.options.buttons.undo"), this::undoChanges);
+        this.applyButton = new FlatButtonWidget(new Dim2i(this.width - 142, this.height - 30, 65, 20), Component.translatable("nestium.options.buttons.apply"), this::applyChanges);
+        this.closeButton = new FlatButtonWidget(new Dim2i(this.width - 73, this.height - 30, 65, 20), Component.translatable("gui.done"), this::onClose);
+
+        this.addRenderableWidget(this.undoButton);
+        this.addRenderableWidget(this.applyButton);
+        this.addRenderableWidget(this.closeButton);
+    }
+
+    private void rebuildGUIPages() {
+        int x = 6;
+        int y = 6;
+
+        for (OptionPage page : this.pages) {
+            int width = 12 + this.font.width(page.getName());
+
+            FlatButtonWidget button = new FlatButtonWidget(new Dim2i(x, y, width, 18), page.getName(), () -> this.setPage(page));
+            button.setSelected(this.currentPage == page);
+
+            x += width + 6;
+
+            this.addRenderableWidget(button);
+        }
+    }
+
+    private void rebuildGUIOptions() {
+        int x = 6;
+        int y = 28;
+
+        for (OptionGroup group : this.currentPage.getGroups()) {
+            // Add each option's control element
+            for (Option<?> option : group.getOptions()) {
+                Control<?> control = option.getControl();
+                ControlElement<?> element = control.createElement(new Dim2i(x, y, 240, 18));
+
+                this.addRenderableWidget(element);
+
+                this.controls.add(element);
+
+                // Move down to the next option
+                y += 18;
+            }
+
+            // Add padding beneath each option group
+            y += 4;
+        }
+    }
+
+    @Override
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+        this.updateControls();
+
+        super.render(graphics, this.prompt != null ? -1 : mouseX, this.prompt != null ? -1 : mouseY, delta);
+
+        if (this.hoveredElement != null) {
+            this.renderOptionTooltip(graphics, this.hoveredElement);
+        }
+
+        if (this.prompt != null) {
+            this.prompt.render(graphics, mouseX, mouseY, delta);
+        }
+    }
+
+    private void updateControls() {
+        ControlElement<?> hovered = this.getActiveControls()
+                .filter(ControlElement::isHovered)
+                .findFirst()
+                .orElse(this.getActiveControls() // If there is no hovered element, use the focused element.
+                        .filter(ControlElement::isFocused)
+                        .findFirst()
+                        .orElse(null));
+
+        boolean hasChanges = this.getAllOptions()
+                .anyMatch(Option::hasChanged);
+
+        for (OptionPage page : this.pages) {
+            for (Option<?> option : page.getOptions()) {
+                if (option.hasChanged()) {
+                    hasChanges = true;
+                }
+            }
+        }
+
+        this.applyButton.setEnabled(hasChanges);
+        this.undoButton.setVisible(hasChanges);
+        this.closeButton.setEnabled(!hasChanges);
+
+        this.hasPendingChanges = hasChanges;
+        this.hoveredElement = hovered;
+    }
+
+    private Stream<Option<?>> getAllOptions() {
+        return this.pages.stream()
+                .flatMap(s -> s.getOptions().stream());
+    }
+
+    private Stream<ControlElement<?>> getActiveControls() {
+        return this.controls.stream();
+    }
+
+    private void renderOptionTooltip(GuiGraphics graphics, ControlElement<?> element) {
+        Dim2i dim = element.getDimensions();
+
+        int textPadding = 3;
+        int boxPadding = 3;
+
+        int boxY = dim.y();
+        int boxX = dim.getLimitX() + boxPadding;
+
+        int boxWidth = Math.min(200, this.width - boxX - boxPadding);
+
+        Option<?> option = element.getOption();
+        var splitWidth = boxWidth - (textPadding * 2);
+        List<FormattedCharSequence> tooltip = new ArrayList<>(this.font.split(option.getTooltip(),splitWidth));
+
+        OptionImpact impact = option.getImpact();
+
+        if (impact != null) {
+            var impactText = Component.translatable("nestium.options.performance_impact_string",
+                    impact.getLocalizedName());
+            tooltip.addAll(this.font.split(impactText.withStyle(ChatFormatting.GRAY), splitWidth));
+        }
+
+        int boxHeight = (tooltip.size() * 12) + boxPadding;
+        int boxYLimit = boxY + boxHeight;
+        int boxYCutoff = this.height - 40;
+
+        // If the box is going to be cutoff on the Y-axis, move it back up the difference
+        if (boxYLimit > boxYCutoff) {
+            boxY -= boxYLimit - boxYCutoff;
+        }
+
+        graphics.fillGradient(boxX, boxY, boxX + boxWidth, boxY + boxHeight, 0xE0000000, 0xE0000000);
+
+        for (int i = 0; i < tooltip.size(); i++) {
+            graphics.drawString(this.font, tooltip.get(i), boxX + textPadding, boxY + textPadding + (i * 12), 0xFFFFFFFF);
+        }
+    }
+
+    private void applyChanges() {
+        final HashSet<OptionStorage<?>> dirtyStorages = new HashSet<>();
+        final EnumSet<OptionFlag> flags = EnumSet.noneOf(OptionFlag.class);
+
+        this.getAllOptions().forEach((option -> {
+            if (!option.hasChanged()) {
+                return;
+            }
+
+            option.applyChanges();
+
+            flags.addAll(option.getFlags());
+            dirtyStorages.add(option.getStorage());
+        }));
+
+        Minecraft client = Minecraft.getInstance();
+
+        if (client.level != null) {
+            if (flags.contains(OptionFlag.REQUIRES_RENDERER_RELOAD)) {
+                client.levelRenderer.allChanged();
+            } else if (flags.contains(OptionFlag.REQUIRES_RENDERER_UPDATE)) {
+                client.levelRenderer.needsUpdate();
+            }
+        }
+
+        if (flags.contains(OptionFlag.REQUIRES_ASSET_RELOAD)) {
+            client.updateMaxMipLevel(client.options.mipmapLevels().get());
+            client.delayTextureReload();
+        }
+
+        if (flags.contains(OptionFlag.REQUIRES_VIDEOMODE_RELOAD)) {
+            client.getWindow().changeFullscreenVideoMode();
+        }
+
+        if (flags.contains(OptionFlag.REQUIRES_GAME_RESTART)) {
+            Console.instance().logMessage(MessageLevel.WARN,
+                    "nestium.console.game_restart", true, 10.0);
+        }
+
+        for (OptionStorage<?> storage : dirtyStorages) {
+            storage.save();
+        }
+    }
+
+    private void undoChanges() {
+        this.getAllOptions()
+                .forEach(Option::reset);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (this.prompt != null && this.prompt.keyPressed(keyCode, scanCode, modifiers)) {
+            return true;
+        }
+
+        if (this.prompt == null && keyCode == GLFW.GLFW_KEY_P && (modifiers & GLFW.GLFW_MOD_SHIFT) != 0) {
+            Minecraft.getInstance().setScreen(new VideoSettingsScreen(this.prevScreen, Minecraft.getInstance(), Minecraft.getInstance().options));
+
+            return true;
+        }
+
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (this.prompt != null) {
+            return this.prompt.mouseClicked(mouseX, mouseY, button);
+        }
+
+        boolean clicked = super.mouseClicked(mouseX, mouseY, button);
+
+        if (!clicked) {
+            this.setFocused(null);
+            return true;
+        }
+
+        return clicked;
+    }
+
+    @Override
+    public boolean shouldCloseOnEsc() {
+        return !this.hasPendingChanges;
+    }
+
+    @Override
+    public void onClose() {
+        this.minecraft.setScreen(this.prevScreen);
+    }
+
+    @Override
+    public List<? extends GuiEventListener> children() {
+        return this.prompt == null ? super.children() : this.prompt.getWidgets();
+    }
+
+    @Override
+    public void setPrompt(@Nullable ScreenPrompt prompt) {
+        this.prompt = prompt;
+    }
+
+    @Nullable
+    @Override
+    public ScreenPrompt getPrompt() {
+        return this.prompt;
+    }
+
+    @Override
+    public Dim2i getDimensions() {
+        return new Dim2i(0, 0, this.width, this.height);
+    }
+}

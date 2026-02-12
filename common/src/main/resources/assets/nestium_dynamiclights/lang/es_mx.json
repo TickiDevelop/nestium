@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Fuentes de luz dinámica",
+  "nestium.dynamiclights.menu.title": "Configuración de NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "Se recomienda deshabilitar la iluminación dinámica de las entidades con Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "La iluminación dinámica con Canvas es pesado en rendimiento!",
+  "nestium.dynamiclights.menu.tabs.general": "General",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Entidades de bloque",
+  "nestium.dynamiclights.option.light_sources.entities": "Entidades",
+  "nestium.dynamiclights.option.light_sources.self": "Primera persona",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Verificación de sensibilidad al agua",
+  "nestium.dynamiclights.option.mode": "Iluminación dinámica",
+  "nestium.dynamiclights.tooltip.block_entities": "Habilita la iluminación dinámica de entidades de bloque.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Establece el modo de iluminación dinámica del Creeper.\n%s - Deshabilita la iluminación dinámica del Creeper.\n%s - Establece una luminancia constante.\n%s - Establece una luminancia dinámica.",
+  "nestium.dynamiclights.tooltip.entities": "Habilita la iluminación dinámica de entidades. Nota: los jugadores siempre están activos.",
+  "nestium.dynamiclights.tooltip.mode.1": "Habilita iluminaciónes dinámica. Si está habilitado, un jugador con una antorcha iluminará el área, por ejemplo.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s y %s se retrasarán un poco, pero minimizan las actualizaciones de luz.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s es una iluminación dinámica suave.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Habilita la iluminación dinámica en primera persona. Se recomienda deshabilitar esto si estás utilizando shaders que tienen su propia iluminación dinámica.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Establece el modo de iluminación dinámica del TNT.\n%s - Deshabilita la iluminación dinámica TNT.\n%s - Establece una luminancia constante.\n%s - Establece una luminancia dinámica.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Habilita la verificación de fuentes de luz sensibles al agua. Esto significa que algunos ítems no emitirán luz mientras estén sumergidos en agua."
+}

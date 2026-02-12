@@ -1,0 +1,35 @@
+package net.caffeinemc.mods.nestium.mixin.platform.neoforge;
+
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.mojang.blaze3d.platform.Window;
+import net.caffeinemc.mods.nestium.client.compatibility.workarounds.nvidia.NvidiaWorkarounds;
+import net.caffeinemc.mods.nestium.client.services.PlatformRuntimeInformation;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+
+import java.util.function.IntSupplier;
+import java.util.function.LongSupplier;
+import java.util.function.Supplier;
+
+@Mixin(Window.class)
+public class WindowMixin {
+    @SuppressWarnings("all")
+    @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/neoforged/fml/loading/ImmediateWindowHandler;setupMinecraftWindow(Ljava/util/function/IntSupplier;Ljava/util/function/IntSupplier;Ljava/util/function/Supplier;Ljava/util/function/LongSupplier;)J"), expect = 0, require = 0)
+    private long wrapGlfwCreateWindowForge(final IntSupplier width, final IntSupplier height, final Supplier<String> title, final LongSupplier monitor, Operation<Long> op) {
+        boolean applyWorkaroundsLate = !PlatformRuntimeInformation.getInstance()
+                .platformHasEarlyLoadingScreen();
+
+        if (applyWorkaroundsLate) {
+            NvidiaWorkarounds.applyEnvironmentChanges();
+        }
+
+        try {
+            return op.call(width, height, title, monitor);
+        } finally {
+            if (applyWorkaroundsLate) {
+                NvidiaWorkarounds.undoEnvironmentChanges();
+            }
+        }
+    }
+}

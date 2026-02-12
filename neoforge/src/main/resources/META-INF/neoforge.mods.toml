@@ -1,0 +1,77 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "Polyform-Shield-1.0.0"
+
+[[mods]]
+modId = "nestium"
+version = "${version}"
+displayName = "Nestium"
+logoFile = "nestium-icon.png"
+authors = "TickiDev (JellySquid, IMS212)"
+description = "Nestium — это оптимизирующий гибридный мод, созданный на базе Sodium."
+
+
+[[dependencies.nestium]]
+modId = "minecraft"
+type = "required"
+versionRange = "1.21.1"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.nestium]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.82,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mixins]]
+config = "nestium-common.mixins.json"
+
+[[mixins]]
+config = "nestium-neoforge.mixins.json"
+
+[[mixins]]
+config = "nestium-entityculling.mixins.json"
+
+[[mixins]]
+config = "nestium-dynamiclights.mixins.json"
+
+[[mixins]]
+config = "nestium-enhancedblockentities.mixins.json"
+
+[[mixins]]
+config = "nestium-gnetum.mixins.json"
+
+[[mixins]]
+config="nestium-ferritecore.accessors.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.blockstatecache.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.datacomponents.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.dedupbakedquad.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.dedupmultipart.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.fastmap.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.modelsides.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.mrl.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.predicates.mixin.json"
+
+[[mixins]]
+config="nestium-ferritecore.threaddetec.mixin.json"
+
+[[mixins]]
+config="nestium-fastipping.mixins.json"

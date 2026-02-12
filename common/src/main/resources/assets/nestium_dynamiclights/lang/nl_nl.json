@@ -1,0 +1,19 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Dynamische Licht Bronnen",
+  "nestium.dynamiclights.menu.title": "NestiumDynamicLights Instellingen",
+  "nestium.dynamiclights.menu.canvas.1": "Dynamische entiteit lichten is niet aanbevolen in gebruik met Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "Dynamische lichtbronnen met Canvas presteert momenteel heel zwaar!",
+  "nestium.dynamiclights.menu.tabs.general": "Algemeen",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Blok Entiteiten",
+  "nestium.dynamiclights.option.light_sources.entities": "Entiteiten",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Water Sensitiviteit Check",
+  "nestium.dynamiclights.option.mode": "Dynamische Lichtbronnen",
+  "nestium.dynamiclights.tooltip.block_entities": "Schakelt dynamische block entiteiten in.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Stelt de creeper lichtmodus in.\n- %s zet dynamische creeper lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "nestium.dynamiclights.tooltip.entities": "Laat entiteiten dynamische lichtbronnen maken. Lot op: Spelers zijn altijd actief.",
+  "nestium.dynamiclights.tooltip.mode.1": "Zet dynamische lichtbronnen aan. Wanneer aan maken spelers licht als ze een fakkel dragen bijvoorbeeld.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s en %s zullen langzamer reageren, maar licht updates zullen verminderd worden.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s is soepel dynamisch licht",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Stelt de TNT lichtmodus in.\n- %s zet dynamische TNT lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Maakt licht water-sensitief. Dit betekent dat sommige objecten onder water geen licht geven."
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.caffeinemc.mods.nestium.ferritecore.mixin.predicates",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "AndConditionMixin",
+    "KeyValueConditionMixin",
+    "OrConditionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8",
+  "plugin": "net.caffeinemc.mods.nestium.ferritecore.mixin.predicates.Config",
+  "refmap": "nestium.mixins.refmap.json"
+}

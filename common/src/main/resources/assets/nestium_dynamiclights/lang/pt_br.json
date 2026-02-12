@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Fontes de luz dinâmicas",
+  "nestium.dynamiclights.menu.title": "Config. NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "Recomenda-se desativar a iluminação dinâmica de entidades ao usar o mod Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "Usar a iluminação dinâmica com o Canvas irá afetar o desempenho!",
+  "nestium.dynamiclights.menu.tabs.general": "Geral",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Entidades de Blocos",
+  "nestium.dynamiclights.option.light_sources.entities": "Entidades",
+  "nestium.dynamiclights.option.light_sources.self": "Primeira pessoa",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Submersos na água",
+  "nestium.dynamiclights.option.mode": "Luzes dinâmicas",
+  "nestium.dynamiclights.tooltip.block_entities": "Habilita a iluminação dinâmica em entidades de blocos.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Define o modo de iluminação dinâmica do Creeper.\n- %s desativa a iluminação dinâmica do Creeper.\n- %s aplica uma luminância constante.\n- %s aplica uma luminância dinâmica.",
+  "nestium.dynamiclights.tooltip.entities": "Habilita a iluminação dinâmica de entidades. Nota: sempre está ativada para jogadores.",
+  "nestium.dynamiclights.tooltip.mode.1": "Habilita a iluminação dinâmica. Se ativo, um jogador segurando uma tocha irá iluminar a área, por exemplo.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s e %s não acompanham bem o movimento, mas minimizam atualizações de luz.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s é a iluminação dinâmica suave.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Permite iluminação dinâmica em primeira pessoa. É recomendável desativar isso se você estiver usando sombreadores com iluminação dinâmica própria.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Define o modo da iluminação dinâmica da Dinamite. \n- %s desativa a iluminação dinâmica da Dinamite.\n- %s aplica uma luminância constante.\n- %s aplica uma luminância dinâmica.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Habilita a verificação de fontes de luz sensíveis à água. Isso significa que alguns itens não irão emitir luz enquanto estiverem submersos em água."
+}

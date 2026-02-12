@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.caffeinemc.mods.nestium.ferritecore.mixin.modelsides",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "SimpleBakedModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8",
+  "plugin": "net.caffeinemc.mods.nestium.ferritecore.mixin.modelsides.Config",
+  "refmap": "nestium.mixins.refmap.json"
+}

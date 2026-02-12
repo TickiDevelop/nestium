@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "Polyform-Shield-1.0.0"
+
+[[mods]]
+modId = "nestium"
+version = "0.6.13"
+displayName = "Nestium"
+logoFile = "nestium-icon.png"
+authors = "JellySquid (jellysquid3), IMS212"
+description = "Nestium is a powerful rendering engine for Minecraft which improves frame rates and reduces lag spikes."
+
+[[dependencies.nestium]]
+modId = "minecraft"
+type = "required"
+versionRange = "1.21.1"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.nestium]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.82,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mixins]]
+config = "nestium-common.mixins.json"
+
+[[mixins]]
+config = "nestium-neoforge.mixins.json"

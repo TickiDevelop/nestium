@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "Джерела динамічного освітлення",
+  "nestium.dynamiclights.menu.title": "Налаштування NestiumDynamicLights",
+  "nestium.dynamiclights.menu.canvas.1": "Рекомендовано відключати динамічне освітлення істот із модом Canvas!",
+  "nestium.dynamiclights.menu.canvas.2": "Динамічне освітлення із модом Canvas наразі має низьку продуктивність!",
+  "nestium.dynamiclights.menu.tabs.general": "Загальні",
+  "nestium.dynamiclights.option.light_sources.block_entities": "Блоки-істоти",
+  "nestium.dynamiclights.option.light_sources.entities": "Істоти",
+  "nestium.dynamiclights.option.light_sources.self": "Від першої особи",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "Перевірка чутливості до води",
+  "nestium.dynamiclights.option.mode": "Динамічне освітлення",
+  "nestium.dynamiclights.tooltip.block_entities": "Вмикає динамічне освітлення для блоків-істот.",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "Встановлює режим динамічного освітлення для Кріпера.\n- %s вимикає динамічне освітлення для Кріпера.\n- %s встановлює постійне освітлення.\n- %s встановлює динамічне освітлення.",
+  "nestium.dynamiclights.tooltip.entities": "Вмикає динамічне освітлення істот. Примітка: для гравців завжди увімкнено.",
+  "nestium.dynamiclights.tooltip.mode.1": "Вмикає динамічне освітлення. Для прикладу, якщо увімкнено то гравець, який тримає смолоскип, освітлюватиме область.",
+  "nestium.dynamiclights.tooltip.mode.2": "%s і %s будуть трохи відставати, але мінімізує оновлення світла.",
+  "nestium.dynamiclights.tooltip.mode.3": "%s це плавне динамічне освітлення.",
+  "nestium.dynamiclights.tooltip.self_light_source": "Вмикає динамічне освітлення від першої особи. Рекомендується вимкнути це, якщо ви використовуєте шейдери, які мають власне динамічне освітлення.",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "Встановлює режим динамічного освітлення для динаміту.\n- %s вимикає динамічне освітлення для динаміту.\n- %s встановлює постійне освітлення.\n- %s встановлює динамічне освітлення.",
+  "nestium.dynamiclights.tooltip.water_sensitive": "Вмикає перевірку чутливих до води джерел світла. Це означає, що деякі предмети не випромінюватимуть світло під час занурення у воду."
+}

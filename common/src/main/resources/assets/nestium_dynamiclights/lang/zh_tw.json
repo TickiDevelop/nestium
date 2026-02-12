@@ -1,0 +1,21 @@
+{
+  "nestium.dynamiclights.menu.light_sources": "動態光源",
+  "nestium.dynamiclights.menu.title": "NestiumDynamicLights 設定",
+  "nestium.dynamiclights.menu.canvas.1": "建議在使用 Canvas 模組時禁用實體動態光源！",
+  "nestium.dynamiclights.menu.canvas.2": "同時使用動態光源和 Canvas 模組會十分影響效能！",
+  "nestium.dynamiclights.menu.tabs.general": "一般",
+  "nestium.dynamiclights.option.light_sources.block_entities": "方塊實體",
+  "nestium.dynamiclights.option.light_sources.entities": "實體",
+  "nestium.dynamiclights.option.light_sources.self": "第一人稱",
+  "nestium.dynamiclights.option.light_sources.water_sensitive_check": "水下照明檢查",
+  "nestium.dynamiclights.option.mode": "動態光源",
+  "nestium.dynamiclights.tooltip.block_entities": "啟用方塊實體動態光源。",
+  "nestium.dynamiclights.tooltip.creeper_lighting": "設定苦力怕動態光源模式。\n- %s 禁用苦力怕動態光源模式\n- %s 設定恆定的亮度。\n- %s 設定動態亮度。",
+  "nestium.dynamiclights.tooltip.entities": "啟用實體動態光源。注：玩家總是活躍的。",
+  "nestium.dynamiclights.tooltip.mode.1": "啟用動態光源。若啟用，玩家拿著火把時會照亮附近。",
+  "nestium.dynamiclights.tooltip.mode.2": "%s 和 %s 略有延遲，以減少光照更新。",
+  "nestium.dynamiclights.tooltip.mode.3": "%s 是平滑的動態光源",
+  "nestium.dynamiclights.tooltip.self_light_source": "啟用第一人稱動態光源。若你正在使用具有自己的動態照明的光影，建議禁用此選項。",
+  "nestium.dynamiclights.tooltip.tnt_lighting": "設定 TNT 的動態光源模式。\n- %s 禁用 TNT 動態光源\n- %s 設定恆定的亮度。\n- %s 設定動態亮度。",
+  "nestium.dynamiclights.tooltip.water_sensitive": "啟用水下照明檢查。這意味著某些物品在浸入水中時將不會發出光。"
+  }
